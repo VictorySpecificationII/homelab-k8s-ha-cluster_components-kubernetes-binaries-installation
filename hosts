@@ -6,7 +6,7 @@ set3-kube-master-01 ansible_host=10.98.64.31 ansible_user=root
 [etcd]
 set1-kube-etcd-01 ansible_host=10.98.65.11 ansible_user=root
 set2-kube-etcd-01 ansible_host=10.98.65.21 ansible_user=root
-set3-kube-etcd-01 ansible_host=10.98.64.31 ansible_user=root
+set3-kube-etcd-01 ansible_host=10.98.65.31 ansible_user=root
 
 [workers]
 set1-kube-agent-01 ansible_host=10.98.66.11 ansible_user=root
@@ -23,5 +23,5 @@ set1-kube-lb-01 ansible_host=10.98.68.11 ansible_user=root
 set2-kube-lb-01 ansible_host=10.98.68.21 ansible_user=root
 set3-kube-lb-01 ansible_host=10.98.68.31 ansible_user=root
 
-[devops]
-cluster-devops-control-01 ansible_host=10.98.69.11 ansible_user=root
+[platform]
+cluster-platform-control-01 ansible_host=10.98.69.11 ansible_user=root

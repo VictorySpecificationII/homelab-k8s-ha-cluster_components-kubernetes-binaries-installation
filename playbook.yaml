@@ -107,34 +107,34 @@
     - name: "Restart containerd"
       shell: systemctl enable containerd
 
-    # - name: "Install podman"
-    #   apt:
-    #     name: podman
-    #     state: present
-    #     update_cache: yes
+    - name: "Install podman"
+      apt:
+        name: podman
+        state: present
+        update_cache: yes
 
-    # - name: "Install podman"
-    #   apt:
-    #     name: podman
-    #     state: present
-    #     update_cache: yes
+    - name: "Install podman"
+      apt:
+        name: podman
+        state: present
+        update_cache: yes
 
-    # - name: "Enable service podman on boot and ensure it is not masked"
-    #   systemd:
-    #     name: podman
-    #     enabled: yes
-    #     masked: no
+    - name: "Enable service podman on boot and ensure it is not masked"
+      systemd:
+        name: podman
+        enabled: yes
+        masked: no
 
-    # - name: "Restart service podman and issue daemon-reload to pick up config changes"
-    #   systemd:
-    #     name: podman
-    #     state: restarted
-    #     daemon_reload: yes
+    - name: "Restart service podman and issue daemon-reload to pick up config changes"
+      systemd:
+        name: podman
+        state: restarted
+        daemon_reload: yes
 
-    # - name: "Start podman service"
-    #   ansible.builtin.service:
-    #     name: podman
-    #     state: started
+    - name: "Start podman service"
+      ansible.builtin.service:
+        name: podman
+        state: started
 
     - name: "Install kubeadm"
       apt:
