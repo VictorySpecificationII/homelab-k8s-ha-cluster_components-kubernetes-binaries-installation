@@ -113,12 +113,6 @@
         state: present
         update_cache: yes
 
-    - name: "Install podman"
-      apt:
-        name: podman
-        state: present
-        update_cache: yes
-
     - name: "Enable service podman on boot and ensure it is not masked"
       systemd:
         name: podman
