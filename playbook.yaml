@@ -40,6 +40,18 @@
         sysctl_set: yes
         state: present
         reload: yes
+      tags: kubespray
+
+
+    - name: "Enable net.ipv6.conf.all.forwarding in sysctl"
+      ansible.posix.sysctl:
+        name: net.ipv6.conf.all.forwarding
+        value: '1'
+        sysctl_set: yes
+        state: present
+        reload: yes
+      tags: kubespray
+
 
     - name: "Enable net.bridge.bridge-nf-call-iptables in sysctl"
       ansible.posix.sysctl:
