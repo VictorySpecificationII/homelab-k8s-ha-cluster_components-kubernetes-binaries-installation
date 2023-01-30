@@ -1,27 +1,17 @@
 [masters]
-set1-kube-master-01 ansible_host=10.98.64.11 ansible_user=root
-set2-kube-master-01 ansible_host=10.98.64.21 ansible_user=root
-set3-kube-master-01 ansible_host=10.98.64.31 ansible_user=root
+kube-master-1 ansible_host=10.228.144.1 ansible_user=root
+kube-master-2 ansible_host=10.228.144.2 ansible_user=root
+kube-master-3 ansible_host=10.228.144.3 ansible_user=root
 
 [etcd]
-set1-kube-etcd-01 ansible_host=10.98.65.11 ansible_user=root
-set2-kube-etcd-01 ansible_host=10.98.65.21 ansible_user=root
-set3-kube-etcd-01 ansible_host=10.98.65.31 ansible_user=root
+kube-etcd-1 ansible_host=10.230.144.1 ansible_user=root
+kube-etcd-2 ansible_host=10.230.144.2 ansible_user=root
+kube-etcd-3 ansible_host=10.230.144.3 ansible_user=root
 
-[workers]
-set1-kube-agent-01 ansible_host=10.98.66.11 ansible_user=root
-set2-kube-agent-01 ansible_host=10.98.66.21 ansible_user=root
-set3-kube-agent-01 ansible_host=10.98.66.31 ansible_user=root
+[cpu]
+kube-cpu-1 ansible_host=10.232.144.1 ansible_user=root
+kube-cpu-2 ansible_host=10.232.144.2 ansible_user=root
 
-[storage]
-set1-kube-storage-01 ansible_host=10.98.67.11 ansible_user=root
-set2-kube-storage-01 ansible_host=10.98.67.21 ansible_user=root
-set3-kube-storage-01 ansible_host=10.98.67.31 ansible_user=root
-
-[feloadbalancers]
-set1-kube-lb-01 ansible_host=10.98.68.11 ansible_user=root
-set2-kube-lb-01 ansible_host=10.98.68.21 ansible_user=root
-set3-kube-lb-01 ansible_host=10.98.68.31 ansible_user=root
-
-[platform]
-cluster-platform-control-01 ansible_host=10.98.69.11 ansible_user=root
+[gpu]
+kube-gpu-1 ansible_host=10.238.144.1 ansible_user=root
+kube-gpu-2 ansible_host=10.238.144.2 ansible_user=root

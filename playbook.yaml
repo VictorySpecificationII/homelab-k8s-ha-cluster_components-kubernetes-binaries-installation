@@ -18,6 +18,10 @@
         path: /etc/modules-load.d/modules.conf
         line: overlay
 
+    - name: "Disabling ufw"
+      ansible.builtin.shell:
+        systemctl stop ufw && systemctl disable ufw
+
     - name: "Add br_netfilter module to /etc/modules file"
       ansible.builtin.lineinfile:
         path: /etc/modules-load.d/modules.conf
@@ -91,33 +95,40 @@
         repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
         state: present
 
-    - name: "Add apt signing key for Docker"
-      apt_key:
-        url: https://download.docker.com/linux/ubuntu/gpg
-        state: present
-
-    - name: "Add Docker repository into sources list"
-      apt_repository:
-        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu jammy stable
-        state: present
-
     - name: "Install containerd.io"
       apt:
-        name: containerd.io
+        name: containerd
         state: present
         update_cache: yes
 
+
+    - name: "Create /etc/containerd directory"
+      shell: mkdir -p /etc/containerd/
+      tags:
+        - ctr
+
     - name: "Configure containerd to start using systemd as a cgroup (1/2)"
       shell: containerd config default | sudo tee /etc/containerd/config.toml >/dev/null 2>&1
+      tags:
+        - ctr
+
 
     - name: "Configure containerd to start using systemd as a cgroup (2/2)"
       shell: sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/config.toml
+      tags:
+        - ctr
 
     - name: "Restart containerd"
       shell: systemctl restart containerd
+      tags:
+        - ctr
+
 
     - name: "Enable containerd"
       shell: systemctl enable containerd
+      tags:
+        - ctr
+
 
     - name: "Install podman"
       apt:

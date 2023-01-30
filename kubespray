@@ -8,14 +8,14 @@ set1-kubespray-worker-01 ansible_host=10.234.211.41 ansible_user=root
 set2-kubespray-worker-01 ansible_host=10.234.211.51 ansible_user=root
 set3-kubespray-worker-01 ansible_host=10.234.211.61 ansible_user=root
 
-[storage]
-set1-kubespray-storage-01 ansible_host=10.234.211.71 ansible_user=root
-set2-kubespray-storage-01 ansible_host=10.234.211.81 ansible_user=root
-set3-kubespray-storage-01 ansible_host=10.234.211.91 ansible_user=root
+[etcd]
+set1-kubespray-etcd-01 ansible_host=10.234.211.71 ansible_user=root
+set2-kubespray-etcd-01 ansible_host=10.234.211.81 ansible_user=root
+set3-kubespray-etcd-01 ansible_host=10.234.211.91 ansible_user=root
 
 [feloadbalancers]
 set1-kubespray-infra-01 ansible_host=10.234.210.11 ansible_user=root
 set2-kubespray-infra-01 ansible_host=10.234.210.21 ansible_user=root
-
+set3-kubespray-infra-01 ansible_host=10.234.210.31 ansible_user=root
 [platform]
 kubespray-cluster-platform-control-01 ansible_host=10.234.210.1 ansible_user=root
